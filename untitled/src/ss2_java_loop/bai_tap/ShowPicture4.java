@@ -2,7 +2,7 @@ package ss2_java_loop.bai_tap;
 
 import java.util.Scanner;
 
-public class ShowPiture4 {
+public class ShowPicture4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         double height;

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PrimeNumberBelow {
     public static void main(String[] args) {
-        int[] n= new int[100];
+        int n;
         n = new Scanner(System.in).nextInt();
         int count = 0;
         int x = 2;
