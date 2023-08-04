@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class primeNumberDisplay {
     public static void main(String[] args) {
         int n = 20;
-//        n = new Scanner(System.in).nextInt();
         int count = 0;
         int x = 2;
         while (count<n) {

@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class PrimeNumberBelow {
     public static void main(String[] args) {
         int n= 101;
-        n = new Scanner(System.in).nextInt();
         int count = 0;
         int x = 2;
         while (count<n) {
