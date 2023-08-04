@@ -1,8 +1,6 @@
 package ss2_java_loop.bai_tap;
 
-import java.util.Scanner;
-
-public class primeNumberDisplay {
+public class PrimeNumberDisplay {
     public static void main(String[] args) {
         int n = 20;
         int count = 0;
