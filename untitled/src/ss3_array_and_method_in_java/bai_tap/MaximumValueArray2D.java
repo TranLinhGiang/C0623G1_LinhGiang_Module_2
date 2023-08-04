@@ -3,45 +3,24 @@ package ss3_array_and_method_in_java.bai_tap;
 import java.util.Scanner;
 
 public class MaximumValueArray2D {
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
-
-        // Do dai cua mang
-        System.out.println("Length of Array : ");
-        int lengthArray = input.nextInt();
-        int[][] integerArray = new int[lengthArray][];
-
-        // Do dai cho cac mang con
-        int i = 0;
-        while (i < lengthArray) {
-            System.out.print("Enter length sub Array " + (i + 1) + " of Array : ");
-            integerArray[i] = new int[scanner.nextInt()];
-            i++;
-        }
-
-        // input gia tri cho tung phan tu o mang con
-        for (int j = 0; j < integerArray.length; j++) {
-            for (int k = 0; k < integerArray[j].length; k++) {
-                System.out.print("Input number " + (k + 1) + " of sub array"+(j+1)+ " : ");
-                integerArray[j][k] = scanner.nextInt();
-            }
-        }
-
-        String arrayInput = "";
-        int max = integerArray[0][0];
-        // Tim max va noi cac gia tri vao String duoc tao
-        for (int j = 0; j < integerArray.length; j++) {
-            for (int k = 0; k < integerArray[j].length; k++) {
-                arrayInput += integerArray[j][k] +",";
-                if (max<integerArray[j][k]){
-                    max = integerArray[j][k];
+        //ma tran.
+        int[][] matrix = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9},
+                {12, 67, 0}
+        };
+        int max = matrix[0][0];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if (max < matrix[i][j]) {
+                    max = matrix[i][j];
                 }
             }
         }
-        System.out.println("Array input : "+arrayInput);
-        System.out.println("Largest number in array: "+max);
+        System.out.print("The maximum value is:" + max);
     }
-
 }
-// chua xong
