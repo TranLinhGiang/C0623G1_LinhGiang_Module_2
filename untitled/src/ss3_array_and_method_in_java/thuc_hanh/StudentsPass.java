@@ -2,7 +2,7 @@ package ss3_array_and_method_in_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class studentsPass {
+public class StudentsPass {
     public static void main(String[] args) {
         int size;
         int[] array;
