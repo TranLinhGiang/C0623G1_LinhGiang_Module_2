@@ -2,7 +2,7 @@ package ss1_java_overview.bai_tap;
 
 import java.util.Scanner;
 
-public class numbersIntoWords {
+public class NumbersIntoWords {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String[] arr = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};

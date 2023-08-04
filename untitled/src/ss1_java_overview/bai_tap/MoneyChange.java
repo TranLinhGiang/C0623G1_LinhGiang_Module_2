@@ -2,7 +2,7 @@ package ss1_java_overview.bai_tap;
 
 import java.util.Scanner;
 
-public class moneyChange {
+public class MoneyChange {
     public static void main(String[] args) {
         double rate = 23000;
         double usd;
