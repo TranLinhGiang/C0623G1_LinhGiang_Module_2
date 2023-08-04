@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class primeNumberDisplay {
     public static void main(String[] args) {
-        int n;
-        n = new Scanner(System.in).nextInt();
+        int n = 20;
+//        n = new Scanner(System.in).nextInt();
         int count = 0;
         int x = 2;
-        while (true) {
+        while (count<n) {
             if (isPrime(x)) {
                 System.out.println(x + " ");
                 count++;
