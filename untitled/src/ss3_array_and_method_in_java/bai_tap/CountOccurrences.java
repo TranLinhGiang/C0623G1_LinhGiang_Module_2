@@ -4,14 +4,14 @@ import java.util.Scanner;
 
 public class CountOccurrences {
     public static void main(String[] args) {
-        String Chain;
+        String aChain;
         int count = 0;
         char characters = 'a';// ký tự d
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nhập vào một chuỗi để kiểm tra : ");
-        Chain = scanner.nextLine();
-        for (int i = 0; i < Chain.length(); i++) {
-            if (Chain.charAt(i) == characters) {
+        aChain = scanner.nextLine();
+        for (int i = 0; i < aChain.length(); i++) {
+            if (aChain.charAt(i) == characters) {
                 count++;
             }
         }

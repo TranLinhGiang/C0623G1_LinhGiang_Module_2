@@ -5,6 +5,7 @@ import java.util.Scanner;
 // Tìm giá trị nhỏ nhất trong mảng.
 public class SmallestValue {
 
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
