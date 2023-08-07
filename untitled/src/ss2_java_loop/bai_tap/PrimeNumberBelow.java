@@ -11,9 +11,8 @@ public class PrimeNumberBelow {
             if (isPrime(x)) {
                 System.out.println(x + " ");
                 count++;
-            }if (count == n) {
-                break;
-            }if (x == 2)
+            }
+            if (x == 2)
                 x++;
             else {
                 x += 2;

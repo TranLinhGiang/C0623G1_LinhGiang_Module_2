@@ -10,9 +10,6 @@ public class PrimeNumberDisplay {
                 System.out.println(x + " ");
                 count++;
             }
-            if (count == n) {
-                break;
-            }
             if (x == 2)
                 x++;
             else {
