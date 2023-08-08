@@ -26,16 +26,18 @@ public class StopWatch {
         getEndTime(endTime);
     }
     public void getElapsedTime() {
-        int ElapsedTime = (startTime.toSecondOfDay() - endTime.toSecondOfDay()) * 100;
-        System.out.println("số mili giây:" + ElapsedTime);
+        int ElapsedTime = (endTime.toSecondOfDay() - startTime.toSecondOfDay()) * 100;
+        System.out.println("number of milliseconds:" + ElapsedTime);
     }
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        for (int i = 1; i < 100000; i++) {
-            stopWatch.stop();
-            stopWatch.getElapsedTime();
+        int sum = 0;
+        for (int i = 1; i < 1000000000; i++) {
+           sum+=i;
         }
+        stopWatch.stop();
+        stopWatch.getElapsedTime();
     }
 }
 
