@@ -14,22 +14,14 @@ public class Student {
     public void setClasses(String classes) {
         this.classes = classes;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getClasses() {
-        return classes;
-    }
+    
 
     public static class TestStudent {
         public static void main(String[] args) {
             Student student = new Student();
             student.setName("after retesting the name: " + " " + "Giang");
             student.setClasses("after retesting the class: " + " " + "C0623G1");
-            System.out.println(student.getName());
-            System.out.println(student.getClasses());
+
         }
     }
 }
