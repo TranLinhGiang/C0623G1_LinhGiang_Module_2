@@ -14,7 +14,7 @@ public class Student {
     public void setClasses(String classes) {
         this.classes = classes;
     }
-    
+
 
     public static class TestStudent {
         public static void main(String[] args) {
