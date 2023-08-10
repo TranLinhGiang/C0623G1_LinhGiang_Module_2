@@ -1,7 +1,9 @@
-package ss7_abstract_class_interface.thuc_hanh.bai2;
+package ss7_abstract_class_interface.bai_tap.bai2;
 
-public class Circle extends Shape {
-    private double radius = 1.0;
+import ss7_abstract_class_interface.bai_tap.bai1.Resizeable;
+
+ public class Circle extends Shape implements Colorable {
+    private double radius = 1.0d;
 
     public Circle() {
     }
@@ -31,11 +33,19 @@ public class Circle extends Shape {
         return 2 * radius * Math.PI;
     }
 
+
     @Override
     public String toString() {
-        return "A Circle with radius="
-                + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+        return "Circle{" +
+                "radius=" + getRadius() +
+                "Area =" + getArea() +
+                "color"+ getColor()+
+                "Perimeter"+ getPerimeter()+
+                "filled"+ isFilled()+
+                '}';
     }
+     @Override
+     public void howToColor() {
+         System.out.println("Color all four sides..");
+     }
 }

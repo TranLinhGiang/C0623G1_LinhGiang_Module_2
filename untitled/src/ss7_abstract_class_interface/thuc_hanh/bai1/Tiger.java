@@ -1,6 +1,8 @@
-package ss7_abstract_class_interface.thuc_hanh;
+package ss7_abstract_class_interface.thuc_hanh.bai1;
 
-public class Tiger extends Animal{
+import ss7_abstract_class_interface.thuc_hanh.bai1.Animal;
+
+public class Tiger extends Animal {
     @Override
     public String makeSound() {
         return  "Tiger: roarrrr!";

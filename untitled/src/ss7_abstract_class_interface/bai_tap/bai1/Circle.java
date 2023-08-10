@@ -1,7 +1,7 @@
-package ss7_abstract_class_interface.thuc_hanh.bai2;
+package ss7_abstract_class_interface.bai_tap.bai1;
 
-public class Circle extends Shape {
-    private double radius = 1.0;
+public class Circle extends Shape implements Resizeable {
+    private double radius = 2.0d;
 
     public Circle() {
     }
@@ -32,10 +32,14 @@ public class Circle extends Shape {
     }
 
     @Override
+    public void resize(double percent) {
+       setRadius(this.radius *= (1+(percent/100)));
+    }
+    @Override
     public String toString() {
-        return "A Circle with radius="
-                + getRadius()
-                + ", which is a subclass of "
-                + super.toString();
+        return "Circle{" +
+                "radius=" + getRadius() +
+                "Area =" + getArea() +
+                '}';
     }
 }

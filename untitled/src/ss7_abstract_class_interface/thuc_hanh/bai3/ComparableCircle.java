@@ -1,4 +1,6 @@
-package ss7_abstract_class_interface.thuc_hanh.bai2;
+package ss7_abstract_class_interface.thuc_hanh.bai3;
+
+import ss7_abstract_class_interface.thuc_hanh.bai2.Circle;
 
 public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
 
