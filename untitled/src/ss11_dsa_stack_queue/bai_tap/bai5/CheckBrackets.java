@@ -4,10 +4,10 @@ import java.util.Stack;
 
 public class CheckBrackets {
     public static void main(String[] args) {
-        System.out.println(checkBrackets("(},{},()"));
-        System.out.println(checkBrackets("{},[],()"));
-        System.out.println(checkBrackets("[},(},[["));
-        System.out.println(checkBrackets("[],{},()"));
+        System.out.println(checkBrackets("s * (s – a) * (s – b) * (s – c)"));
+        System.out.println(checkBrackets("(– b + {b2 – 4*a*c)^0.5) / 2*a "));
+        System.out.println(checkBrackets("s * (s – a) * (s – b * (s – c) "));
+        System.out.println(checkBrackets("(– b + (b^2 – 4*a*c]^(0.5/ 2*a)) "));
     }
 
     public static boolean checkBrackets(String string) {
