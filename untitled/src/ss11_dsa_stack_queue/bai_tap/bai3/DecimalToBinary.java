@@ -1,21 +1,24 @@
 package ss11_dsa_stack_queue.bai_tap.bai3;
 
 public class DecimalToBinary {
-    public void convertBinary(int num) {
-        int Decimal[] = new int[30];
-        int index= 0;
+    public String convertBinary(int num) {
+        int Decimal[] = new int[num];
+        int index = 0;
         while (num > 0) {
-            Decimal[index++] = num % 2;
-            num= num/2;
+            Decimal[index] = num % 2;
+            num = num / 2;
+            index++;
         }
-        for (int i = index; i >=0 ; i--) {
-            System.out.println(Decimal[i]);
+        String result = "";
+        for (int i = index - 1; i >= 0; i--) {
+            result += Decimal[i];
         }
+        return result;
     }
 
     public static void main(String[] args) {
         DecimalToBinary decimalToBinary = new DecimalToBinary();
-        System.out.print("the binary of 30 is: ");
-        decimalToBinary.convertBinary(30);
+        String result = decimalToBinary.convertBinary(100);
+        System.out.print("the binary of the number you want is : " + result);
     }
 }
