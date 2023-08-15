@@ -13,22 +13,22 @@ public class CheckBrackets {
     public static boolean checkBrackets(String string) {
         Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < string.length(); i++) {
-            char c = string.charAt(i);
-            if (c == '[' || c == '(' || c == '{') {
-                stack.push(c);
-            } else if (c == ']') {
+            char Character = string.charAt(i);
+            if (Character == '[' || Character == '(' || Character == '{') {
+                stack.push(Character);
+            } else if (Character == ']') {
                 if (stack.isEmpty() || stack.pop() == '[') {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (c == ')') {
+            } else if (Character == ')') {
                 if (stack.isEmpty() || stack.pop() == '(') {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (c == '}') {
+            } else if (Character == '}') {
                 if (stack.isEmpty() || stack.pop() == '{') {
                     return true;
                 } else {
