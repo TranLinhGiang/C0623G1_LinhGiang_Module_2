@@ -8,31 +8,31 @@ import java.util.List;
 
 public class ProductServiceImpl implements IProductService {
 
-    ProductRepoImpl productService = new ProductRepoImpl();
+    private final ProductRepoImpl productRepo = new ProductRepoImpl();
 
     @Override
     public void addProduct(Product product) {
-        productService.addProduct(product);
+        productRepo.addProduct(product);
     }
 
     @Override
-    public void editProductById (int id, Product product) {
-        productService.editProductById(id,product);
+    public void editProductById(int id, Product product) {
+        productRepo.editProductById(id, product);
     }
 
     @Override
     public void removeProductById(int id) {
-        productService.removeProductById(id);
+        productRepo.removeProductById(id);
     }
 
     @Override
-    public List<Product> displayProductById () {
-        return productService.displayProductById();
+    public List<Product> displayProductById() {
+        return productRepo.displayProductById();
     }
 
     @Override
     public Product searchProduct(String name) {
-        return productService.searchProduct(name);
+        return productRepo.searchProduct(name);
     }
 
     @Override
@@ -42,12 +42,12 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Product> sortListByPriceAscending() {
-        return productService.sortListByPriceAscending();
+        return productRepo.sortListByPriceAscending();
     }
 
     @Override
     public List<Product> sortListByPriceDecrease() {
-        return productService.sortListByPriceDecrease();
+        return productRepo.sortListByPriceDecrease();
     }
 
     @Override
