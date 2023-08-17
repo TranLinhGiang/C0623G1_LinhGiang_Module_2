@@ -1,6 +1,6 @@
-package ss5_Access_modifier_static_method_static_property.thuc_hanh;
+package ss5_access_modifier_static_method_static_property.thuc_hanh;
 
-public class Student {
+public class Student extends mvc.model.Student{
     private int rollno;
     private String name;
     private static String college = "BBDIT";

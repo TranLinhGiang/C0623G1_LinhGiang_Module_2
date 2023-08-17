@@ -1,4 +1,4 @@
-package ss6_Inheritance.bai_tap;
+package ss6_inheritance.bai_tap;
 
 public class Circle {
     private double radius = 3.0;

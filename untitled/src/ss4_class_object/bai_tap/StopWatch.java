@@ -1,7 +1,6 @@
-package ss4_Class_Object.bai_tap;
+package ss4_class_object.bai_tap;
 
 import java.time.LocalTime;
-import java.util.Locale;
 
 public class StopWatch {
     private LocalTime startTime;
@@ -10,6 +9,7 @@ public class StopWatch {
     public LocalTime getStartTime(LocalTime startTime) {
         return startTime;
     }
+
     public LocalTime getEndTime(LocalTime endTime) {
         return endTime;
     }
@@ -21,6 +21,7 @@ public class StopWatch {
         this.startTime = LocalTime.now();
         getStartTime(startTime);
     }
+
     public void stop() {
         this.endTime = LocalTime.now();
         getEndTime(endTime);

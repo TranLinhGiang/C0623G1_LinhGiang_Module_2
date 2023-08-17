@@ -1,4 +1,4 @@
-package ss6_Inheritance.thuc_hanh;
+package ss6_inheritance.thuc_hanh;
 
 public class Shape {
     private String color = "green";

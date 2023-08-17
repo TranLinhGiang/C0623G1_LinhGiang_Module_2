@@ -1,6 +1,4 @@
-package ss6_Inheritance.bai_tap;
-
-import java.util.Arrays;
+package ss6_inheritance.bai_tap;
 
 public class Point {
     private float x = 0.0f;

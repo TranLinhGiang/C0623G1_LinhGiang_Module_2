@@ -1,4 +1,4 @@
-package ss6_Inheritance.bai_tap;
+package ss6_inheritance.bai_tap;
 
 public class Cylinder extends Circle {
     private double width = 5;
@@ -47,6 +47,8 @@ public class Cylinder extends Circle {
             System.out.println("the height of the cylinder is equal to: " + cylinder.getHeight());
             System.out.println("The radius of the cylinder is equal to: " + cylinder.getRadius());
             System.out.println("The volume of the cylinder is equal to: " + cylinder.getVolume());
+
+
         }
     }
 }
