@@ -18,8 +18,6 @@ public class Triangle {
 
             System.out.println("Nhập giá trị của c: ");
             c = scanner.nextInt();
-
-
         } catch (Exception e) {
             System.out.println("Nhập dữ liệu không đúng.");
         }
@@ -28,14 +26,17 @@ public class Triangle {
         System.out.println("-Giá trị b bạn nhập là: " + b);
         System.out.println("-Giá trị c bạn nhập là: " + c);
 
+
+        if (a < 0 || b < 0 || c < 0) {
+            System.out.println("Bạn không được nhập số nguyên âm. ");
+        }
         while (a > 0) {
             if (a + b > c && b + c > a && c + a > b) {
                 System.out.println("=> Đây là ba cạnh của tam giác.");
-                break;
             } else {
                 System.out.println("=> Đây không phải là ba cạnh của tam giác.");
-                break;
             }
+            break;
         }
     }
 }
