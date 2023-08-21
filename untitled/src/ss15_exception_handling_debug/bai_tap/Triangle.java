@@ -10,16 +10,16 @@ public class Triangle {
         int c = 0;
 
         try {
-            System.out.println(" Nhập giá trị của a: ");
+            System.out.print(" Nhập giá trị của a: ");
             a = scanner.nextInt();
 
-            System.out.println("Nhập giá trị của b: ");
+            System.out.print(" Nhập giá trị của b: ");
             b = scanner.nextInt();
 
-            System.out.println("Nhập giá trị của c: ");
+            System.out.print(" Nhập giá trị của c: ");
             c = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Nhập dữ liệu không đúng.");
+            System.out.println("Nhập dữ liệu không đúng, cạnh của tam giác phải là số.");
         }
 
         System.out.println("-Giá trị a bạn nhập là: " + a);
@@ -28,7 +28,7 @@ public class Triangle {
 
 
         if (a < 0 || b < 0 || c < 0) {
-            System.out.println("Bạn không được nhập số nguyên âm. ");
+            System.out.println("-Ba cạnh của tam giác phải là số nguyên dương. ");
         }
         while (a > 0) {
             if (a + b > c && b + c > a && c + a > b) {
