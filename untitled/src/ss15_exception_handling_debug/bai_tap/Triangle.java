@@ -9,34 +9,55 @@ public class Triangle {
         int b = 0;
         int c = 0;
 
-        try {
-            System.out.print(" Nhập giá trị của a: ");
-            a = scanner.nextInt();
+        do {
+            try {
+                do {
+                    try {
+                        System.out.print(" Nhập giá trị của a: ");
+                        a = Integer.parseInt(scanner.nextLine());
+                        if (a <= 0) {
+                            System.out.println("Vui lòng nhập giá trị lớn hơn 0");
+                        }
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Không đúng định dạng");
+                    }
+                } while (a <= 0);
 
-            System.out.print(" Nhập giá trị của b: ");
-            b = scanner.nextInt();
+                do {
+                    try {
+                        System.out.print(" Nhập giá trị của b: ");
+                        b = Integer.parseInt(scanner.nextLine());
+                        if (b <= 0) {
+                            System.out.println("Vui lòng nhập giá trị lớn hơn 0");
+                        }
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Không đúng định dạng");
 
-            System.out.print(" Nhập giá trị của c: ");
-            c = scanner.nextInt();
-        } catch (Exception e) {
-            System.out.println("Nhập dữ liệu không đúng, cạnh của tam giác phải là số.");
-        }
+                    }
+                } while (b <= 0);
 
-        System.out.println("-Giá trị a bạn nhập là: " + a);
-        System.out.println("-Giá trị b bạn nhập là: " + b);
-        System.out.println("-Giá trị c bạn nhập là: " + c);
+                do {
+                    try {
+                        System.out.print(" Nhập giá trị của c: ");
+                        c = Integer.parseInt(scanner.nextLine());
+                        if (c <= 0) {
+                            System.out.println("Vui lòng nhập giá trị lớn hơn 0");
+                        }
+                    } catch (NumberFormatException exception) {
+                        System.out.println("Không đúng định dạng");
+                    }
+                } while (c <= 0);
 
-
-        if (a < 0 || b < 0 || c < 0) {
-            System.out.println("-Ba cạnh của tam giác phải là số nguyên dương. ");
-        }
-        while (a > 0) {
-            if (a + b > c && b + c > a && c + a > b) {
-                System.out.println("=> Đây là ba cạnh của tam giác.");
-            } else {
-                System.out.println("=> Đây không phải là ba cạnh của tam giác.");
+            } catch (Exception e) {
+                System.out.println("Nhập dữ liệu không đúng, cạnh của tam giác phải là số.");
+                break;
             }
-            break;
+        } while (a + b < c || b + c < a || c + a < b);
+
+        if(a+b>c && b+c>a &&c+a>b){
+            System.out.println("=> Đây là ba cạnh của tam giác.");
+        }else {
+            System.out.println("=> Đây không phải là ba cạnh của tam giác.");
         }
     }
 }
