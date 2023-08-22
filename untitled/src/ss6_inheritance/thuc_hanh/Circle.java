@@ -30,8 +30,7 @@ public class Circle extends Shape {
     public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
-
-    // overide.
+    
     public String toString() {
         return "A Circle with radius="
                 + getRadius()
