@@ -54,9 +54,9 @@ public class Triangle {
             }
         } while (a + b < c || b + c < a || c + a < b);
 
-        if(a+b>c && b+c>a &&c+a>b){
+        if (a + b > c && b + c > a && c + a > b) {
             System.out.println("=> Đây là ba cạnh của tam giác.");
-        }else {
+        } else {
             System.out.println("=> Đây không phải là ba cạnh của tam giác.");
         }
     }
