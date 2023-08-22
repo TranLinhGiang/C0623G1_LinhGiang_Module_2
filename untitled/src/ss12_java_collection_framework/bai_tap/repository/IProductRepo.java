@@ -11,7 +11,9 @@ public interface IProductRepo {
     void editProduct(int id, Product product);
 
     void editProductById(int id, Product product);
-    
+
+    void editProducById(int id, Product product);
+
     void removeProductById(int id);
 
     List<Product> displayProductById();
