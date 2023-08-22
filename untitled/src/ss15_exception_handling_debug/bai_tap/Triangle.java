@@ -52,12 +52,11 @@ public class Triangle {
                 System.out.println("Nhập dữ liệu không đúng, cạnh của tam giác phải là số.");
                 break;
             }
-        } while (a + b < c || b + c < a || c + a < b);
-
-        if (a + b > c && b + c > a && c + a > b) {
-            System.out.println("=> Đây là ba cạnh của tam giác.");
-        } else {
-            System.out.println("=> Đây không phải là ba cạnh của tam giác.");
-        }
+            if (a + b > c && b + c > a && c + a > b) {
+                System.out.println("=> Đây là ba cạnh của tam giác.");
+            } else {
+                System.out.println("=> Đây không phải là ba cạnh của tam giác.");
+            }
+        } while (a + b <= c || b + c <= a || c + a <= b);
     }
 }
