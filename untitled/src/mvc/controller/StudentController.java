@@ -13,11 +13,9 @@ public class StudentController {
     public void createStudent(Student student) {
         this.studentService.createStudent(student);
     }
-
     public void removeStudent(int id) {
         this.studentService.removeStudent(id);
     }
-
     public List<Student> getStudents() {
         return this.studentService.getStudents();
     }
