@@ -10,8 +10,7 @@ public class Student extends mvc.model.Student{
         rollno = r;
         name = n;
     }
-
-    //static method to change the value of static variable
+    
     static void change() {
         college = "CODEGYM";
     }
