@@ -1,1 +1,1 @@
-xin chao
+xin chao moi nguoi

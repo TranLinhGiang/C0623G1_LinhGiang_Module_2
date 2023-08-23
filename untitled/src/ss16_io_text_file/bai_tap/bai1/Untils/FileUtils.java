@@ -36,7 +36,7 @@ public class FileUtils {
             }
         }
     }
-    public  static  void WriteFile(String pathName, List<String> data){
+    public  static  void writeFile(String pathName, List<String> data){
         File file = null;
         FileWriter fileWriter= null;
         BufferedWriter bufferedWriter= null;
@@ -71,8 +71,8 @@ public class FileUtils {
         String path = scanner.nextLine();
         List<String> dataSourceFile = FileUtils.readFile(path);
 
-        String pathCopy= "F:\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss16_io_text_file\\bai_tap\\bai1\\Data\\targetFile.csv";
-        FileUtils.WriteFile(pathCopy,dataSourceFile);
+        String pathCopy= "F:\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss16_io_text_file\\bai_tap\\bai1\\Data\\targetFile.txt";
+        FileUtils.writeFile(pathCopy,dataSourceFile);
 
     }
 }
