@@ -6,13 +6,16 @@ import java.util.List;
 
 public interface IProductService {
     void addProduct(Product product);
-    void editProductById (int id, Product product);
-    void removeProductById (int id);
-    List<Product> displayProductById ();
-    Product searchProduct (String name);
+
+    void removeProductById(int id);
+
+    void editProductbyId(int id, Product product);
+
+    Product searchProduct(String name);
+
     List<Product> getProducts();
 
-    List<Product> sortListByPriceAscending();
+    List<Product> sortListByPriceaAscending();
 
-    List<Product> sortListByPriceDecrease();
+    List<Product> sortListByPriceaDecrease();
 }

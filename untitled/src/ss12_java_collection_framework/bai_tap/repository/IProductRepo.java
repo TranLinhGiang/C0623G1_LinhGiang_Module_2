@@ -7,21 +7,15 @@ import java.util.List;
 public interface IProductRepo {
     void addProduct(Product product);
 
-
-    void editProduct(int id, Product product);
-
-    void editProductById(int id, Product product);
-
-    void editProducById(int id, Product product);
-
     void removeProductById(int id);
 
-    List<Product> displayProductById();
+    void editProductbyId(int id, Product product);
 
     Product searchProduct(String name);
 
-    List<Product> sortListByPriceAscending();
+    List<Product> getProducts();
 
-    List<Product> sortListByPriceDecrease();
+    List<Product> sortListByPriceaAscending();
 
+    List<Product> sortListByPriceaDecrease();
 }

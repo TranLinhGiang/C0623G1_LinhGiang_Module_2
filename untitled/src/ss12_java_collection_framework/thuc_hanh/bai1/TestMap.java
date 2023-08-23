@@ -13,7 +13,7 @@ public class TestMap {
         hashmap.put("Lewis",29);
         hashmap.put("Cook",29);
 
-        
+
         System.out.print("Display entries in HashMap: ");
         System.out.println(hashmap);
 

@@ -7,7 +7,6 @@ import ss12_java_collection_framework.bai_tap.service.IProductService;
 import java.util.List;
 
 public class ProductServiceImpl implements IProductService {
-
     private final ProductRepoImpl productRepo = new ProductRepoImpl();
 
     @Override
@@ -16,18 +15,13 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void editProductById(int id, Product product) {
-        productRepo.editProductById(id, product);
-    }
-
-    @Override
     public void removeProductById(int id) {
         productRepo.removeProductById(id);
     }
 
     @Override
-    public List<Product> displayProductById() {
-        return productRepo.displayProductById();
+    public void editProductbyId(int id, Product product) {
+        productRepo.editProductbyId(id, product);
     }
 
     @Override
@@ -37,17 +31,17 @@ public class ProductServiceImpl implements IProductService {
 
     @Override
     public List<Product> getProducts() {
-        return null;
+        return productRepo.getProducts();
     }
 
     @Override
-    public List<Product> sortListByPriceAscending() {
-        return productRepo.sortListByPriceAscending();
+    public List<Product> sortListByPriceaAscending() {
+        return productRepo.sortListByPriceaAscending();
     }
 
     @Override
-    public List<Product> sortListByPriceDecrease() {
-        return productRepo.sortListByPriceDecrease();
+    public List<Product> sortListByPriceaDecrease() {
+        return productRepo.sortListByPriceaDecrease();
     }
 
     @Override

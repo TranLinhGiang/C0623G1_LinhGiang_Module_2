@@ -8,60 +8,40 @@ import java.util.Collections;
 import java.util.List;
 
 public class ProductRepoImpl implements IProductRepo {
-    private ArrayList<Product> products = new ArrayList<>();
+    private final List<Product> products = new ArrayList<>();
+
     @Override
     public void addProduct(Product product) {
         this.products.add(product);
     }
 
     @Override
-    public void editProduct(int id, Product product) {
-        int index;
-        for (Product valueProduct : products) {
-            if (valueProduct.getId() == id) {
-                index = products.indexOf(valueProduct);
-                products.set(index,product);
-            }
-        }
-    }
-
-    @Override
-    public void editProductById(int id, Product product) {
-        int index;
-        for (Product valueProduct : products) {
-            if (valueProduct.getId() == id) {
-                index = products.indexOf(valueProduct);
-                products.set(index,product);
-            }
-        }
-    }
-
-    @Override
-    public void editProducById(int id, Product product) {
-
-    }
-
-    @Override
     public void removeProductById(int id) {
         int index;
-        for (Product product:products) {
-            if(product.getId()==id){
-                index= products.indexOf(product);
+        for (Product product: products) {
+            if (product.getId() == id) {
+                index = products.indexOf(product);
                 products.remove(index);
+                break;
             }
         }
     }
 
     @Override
-    public List<Product> displayProductById() {
-        return this.products;
+    public void editProductbyId(int id, Product product) {
+        int index;
+        for (Product valueProduct: products) {
+            if (valueProduct.getId() == id) {
+                index = products.indexOf(valueProduct);
+                products.set(index,product);
+            }
+        }
     }
 
     @Override
     public Product searchProduct(String name) {
         Product productToFind = new Product();
-        for (Product valueProducts :
-                products) {
+        for (Product valueProducts : products) {
             if (valueProducts.getName().equals(name)) {
                 productToFind = valueProducts;
             }
@@ -70,13 +50,19 @@ public class ProductRepoImpl implements IProductRepo {
     }
 
     @Override
-    public List<Product> sortListByPriceAscending() {
-//        Collections.sort(this.displayProductById());
-        return this.displayProductById();
+    public List<Product> getProducts() {
+        return this.products;
     }
+
     @Override
-    public List<Product> sortListByPriceDecrease() {
-        Collections.reverse(sortListByPriceAscending());
-        return this.displayProductById();
+    public List<Product> sortListByPriceaAscending() {
+        Collections.sort(this.getProducts());
+        return this.getProducts();
+    }
+
+    @Override
+    public List<Product> sortListByPriceaDecrease() {
+        Collections.reverse(sortListByPriceaAscending());
+        return this.getProducts();
     }
 }
