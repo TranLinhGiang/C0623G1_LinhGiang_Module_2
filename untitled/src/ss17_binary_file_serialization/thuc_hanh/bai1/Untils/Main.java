@@ -1,4 +1,4 @@
-package ss17_binary_file_serialization.thuc_hanh.bai1;
+package ss17_binary_file_serialization.thuc_hanh.bai1.Untils;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner in= new Scanner(System.in);
 
-        System.out.println("Enter source file: ");
+        System.out.println("Enter sourceFile.txt: ");
         String sourcePath= in.nextLine();
         System.out.println("Enter destination file: ");
         String destPath = in.nextLine();
