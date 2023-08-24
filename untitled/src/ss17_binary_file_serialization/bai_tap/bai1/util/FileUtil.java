@@ -8,63 +8,33 @@ import java.util.List;
 
 public class FileUtil {
 
-    public static List<Product> readFile(String pathName) {
-        File file;
-        FileInputStream fileInputStream = null;
-        ObjectInputStream objectInputStream = null;
-        try {
-            file = new File(pathName);
-            if (!file.exists()) {
-                file.createNewFile();
+    public static void writeFile(String path, List<Product> products) {
+        try (FileOutputStream fos = new FileOutputStream(path);
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            for (Product product : products) {
+                oos.writeObject(product);
             }
-            fileInputStream = new FileInputStream(file);
-            objectInputStream = new ObjectInputStream(fileInputStream);
-            return (List<Product>) objectInputStream.readObject();
-        } catch (IOException | ClassNotFoundException e) {
+            oos.flush();
+        } catch (IOException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (objectInputStream != null) {
-                    objectInputStream.close();
-                }
-                if (fileInputStream != null) {
-                    fileInputStream.close();
-                }
-            } catch (IOException e) {
-//                e.printStackTrace();
-                System.out.println(e.getMessage());
-            }
         }
-        return new ArrayList<>();
     }
 
-
-    private void writeFile(String pathName, List<Product> products) {
-        File file;
-        FileOutputStream fileOutputStream = null;
-        ObjectOutputStream objectOutputStream = null;
-        try {
-            file = new File(pathName);
-            if (!file.exists()) {
-                file.createNewFile();
+    public static List<Product> readFile(String path) {
+        List<Product> products = new ArrayList<>();
+        try (FileInputStream fis = new FileInputStream(path);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            while (fis.available() > 0) {
+                Product product = (Product) ois.readObject();
+                products.add(product);
             }
-            fileOutputStream = new FileOutputStream(file);
-            objectOutputStream = new ObjectOutputStream(fileOutputStream);
-            objectOutputStream.writeObject(products);
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            try {
-                if (objectOutputStream != null) {
-                    objectOutputStream.close();
-                }
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-            } catch (IOException e) {
-//                e.printStackTrace();
-                System.out.println(e.getMessage());
-            }
+            System.out.println(e.getMessage());
         }
+        return products;
     }
 }

@@ -1,6 +1,8 @@
 package ss17_binary_file_serialization.bai_tap.bai1.model;
 
-public class Product implements Comparable<Product>{
+import java.io.Serializable;
+
+public class Product implements Serializable,Comparable<Product>{
     private int id;
     private String name;
     private double price;
