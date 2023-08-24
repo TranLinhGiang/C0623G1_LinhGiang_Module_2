@@ -10,14 +10,27 @@ import java.util.Scanner;
 public class Main {
     /// đọc ghi sang file nhị phân.
     public static void writeDataToFie(String path, List<Student> students) {
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
         try {
-            FileOutputStream fos = new FileOutputStream(path);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            fos = new FileOutputStream(path);
+            oos = new ObjectOutputStream(fos);
             oos.writeObject(students);
-            oos.close();
-            fos.close();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.close();
+
+                }
+                if (fos != null) {
+                    fos.close();
+
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -41,80 +54,94 @@ public class Main {
         String path = scanner.nextLine();
         List<String> dataSourceFile = FileUtils.readFile(path);
 
-        String pathCopy= "F:\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss17_binary_file_serialization\\bai_tap\\bai2\\Data\\targetFile.txt";
-        FileUtils.writeFile(pathCopy,dataSourceFile);
+        String pathCopy = "F:\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss17_binary_file_serialization\\bai_tap\\bai2\\Data\\targetFile.txt";
+        FileUtils.writeFile(pathCopy, dataSourceFile);
     }
 
     // Tạo phương thức readDataFromFile(String path) trong lớp Main để lấy ra danh sách học viên đang có trong file sourceFile.txt
     public static List<Student> readDataFromFile(String path) {
         List<Student> students = new ArrayList<>();
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
         try {
-            FileInputStream fis = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            fis = new FileInputStream(path);
+            ois = new ObjectInputStream(fis);
             students = (List<Student>) ois.readObject();
-            fis.close();
-            ois.close();
+
         } catch (Exception ex) {
             ex.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    fis.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+
         }
         return students;
     }
 
     // sao chep =================================================================
-    public static List<String> readFile (String pathName){
+    public static List<String> readFile(String pathName) {
         File file = null;
-        FileReader fileReader= null;
-        BufferedReader bufferedReader= null;
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
         List<String> result = new ArrayList<>();
 
         try {
 
             file = new File(pathName);
-            fileReader= new FileReader(file);
-            bufferedReader= new BufferedReader(fileReader);
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
 
             String str;
-            while ((str = bufferedReader.readLine()) != null){
+            while ((str = bufferedReader.readLine()) != null) {
                 result.add(str);
             }
             return result;
-        }catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
             return result;
-        }finally {
+        } finally {
             try {
-                if (bufferedReader != null){
+                if (bufferedReader != null) {
                     bufferedReader.close();
                 }
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-    public  static  void WriteFile(String pathName, List<String> data){
+
+    public static void WriteFile(String pathName, List<String> data) {
         File file = null;
-        FileWriter fileWriter= null;
-        BufferedWriter bufferedWriter= null;
+        FileWriter fileWriter = null;
+        BufferedWriter bufferedWriter = null;
 
         try {
-            file= new File(pathName);
-            fileWriter= new FileWriter(file);
-            bufferedWriter= new BufferedWriter(fileWriter);
-            for (String d: data) {
+            file = new File(pathName);
+            fileWriter = new FileWriter(file);
+            bufferedWriter = new BufferedWriter(fileWriter);
+            for (String d : data) {
                 bufferedWriter.write(d);
                 bufferedWriter.newLine();
             }
-        }catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
-        }finally {
+        } finally {
             try {
-                if (bufferedWriter != null){
+                if (bufferedWriter != null) {
                     bufferedWriter.close();
                 }
-                if (fileWriter != null){
+                if (fileWriter != null) {
                     fileWriter.close();
                 }
-            }catch (IOException ex){
+            } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
