@@ -9,6 +9,7 @@ public class Customer extends Person {
         super(id, name, dateOfBirth, gender, identityCardNumber, phoneNumber, email);
         this.customerType = customerType;
         this.address = address;
+
     }
 
     public String getCustomerType() {
@@ -26,6 +27,7 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
+
 
     @Override
     public String toString() {
