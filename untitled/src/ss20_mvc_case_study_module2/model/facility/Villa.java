@@ -4,14 +4,19 @@ public class Villa extends Facility {
     private String roomStandard;  // tiêu chuẩn phòng
     private int poolArea;        // diện tích hồ bơi
     private int numberOfFloors;   // số tầng
-
-    public Villa() {
-    }
-    public Villa(String id, String name, String usableArea, int rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int poolArea, int numberOfFloors) {
+    public Villa(String id, String name, String usableArea, int rentalCosts, int maximumNumberOfPeople, String rentalType) {
         super(id, name, usableArea, rentalCosts, maximumNumberOfPeople, rentalType);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.numberOfFloors = numberOfFloors;
+    }
+
+    public Villa(String id, String name, int usableArea, int rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int poolArea, int numberOfFloors) {
+
+    }
+
+    public Villa(String datum, int parseInt, float parseFloat, int parseInt1, int parseInt2, String datum1, int parseInt3, int parseInt4) {
+
     }
 
     public String getRoomStandard() {

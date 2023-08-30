@@ -19,6 +19,34 @@ public class Regex {
 
     private static final String EMAIL_REGEX= "^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9]{2,4})+$"; // email chung
 
+    private static final String GENDER_REGEX= "^(Nam|Nu|LGBT)$";
+
+    private static final String TYPECUSTOMER_REGEX= "^(Diamond|Platinum|Gold|Sliver)$";
+    private static final String LEVELEMPLOYEE_REGEX= "^(Trung cap|Cao dang|Dai hoc|Sau dai hoc)$";
+
+    private static final  String POSITION_REGEX="^(Le tan|Phuc vu|Chuyen vien|Giam sat|Quan ly|Giam doc)$";
+
+    public static boolean positionEmployee(String positionEmployee){
+        pattern=Pattern.compile(POSITION_REGEX);
+        matcher=pattern.matcher(positionEmployee);
+        return matcher.matches();
+    }
+
+    public static boolean levelEmployee(String levelEmployee){
+        pattern=Pattern.compile(LEVELEMPLOYEE_REGEX);
+        matcher= pattern.matcher(levelEmployee);
+        return matcher.matches();
+    }
+    public static boolean typeCustomer(String typeCustomer){
+        pattern= Pattern.compile(TYPECUSTOMER_REGEX);
+        matcher= pattern.matcher(typeCustomer);
+        return matcher.matches();
+    }
+    public static boolean genderEmployeeAndCustomer(String gender){
+        pattern= Pattern.compile(GENDER_REGEX);
+        matcher=pattern.matcher(gender);
+        return matcher.matches();
+    }
 
     public static boolean idEmployeeRegex(String id){
         pattern= Pattern.compile(IDEMPLOY_REGEX);

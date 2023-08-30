@@ -4,9 +4,9 @@ public abstract class Facility {
     private String id;
     private  String name;
     private String usableArea;
-    private int rentalCosts;
-    private int maximumNumberOfPeople;
-    private String rentalType;
+    private int rentalCosts;  // chi phí thuê
+    private int maximumNumberOfPeople;  //số người tối đa
+    private String rentalType;  // loai cho thue
 
     public Facility() {
     }

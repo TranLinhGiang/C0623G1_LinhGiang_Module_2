@@ -4,13 +4,17 @@ public class House extends Facility {
      private String roomStandard;  // tiêu chuẩn phòng
      private int numberOfFloors;   // số tầng
 
-    public House() {
+    public House(String id, String name, int usableArea, int rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int numberOfFloors) {
     }
 
     public House(String id, String name, String usableArea, int rentalCosts, int maximumNumberOfPeople, String rentalType, String roomStandard, int numberOfFloors) {
         super(id, name, usableArea, rentalCosts, maximumNumberOfPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberOfFloors = numberOfFloors;
+    }
+
+    public House(String datum, int parseInt, float parseFloat, int parseInt1, int parseInt2, String datum1, int parseInt3) {
+
     }
 
     public String getRoomStandard() {

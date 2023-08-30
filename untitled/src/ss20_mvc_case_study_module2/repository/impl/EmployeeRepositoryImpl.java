@@ -56,6 +56,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public void add(Employee employee) {
         List<Employee> employeeList = getList();
         employeeList.add(employee);
+
         FileUtils.writeFile(PATH_FILE, convertToString(employeeList));
     }
 

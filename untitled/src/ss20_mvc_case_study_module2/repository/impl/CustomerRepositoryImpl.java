@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CustomerRepositoryImpl implements ICustomerRepository {
 
-    private final String PATH__FILE = "F:\\module 2\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss20_mvc_case_study_module2\\data\\customer.csv";
+    private final String PATH_FILE = "F:\\module 2\\C0623G1_LinhGiang_Module_2\\untitled\\src\\ss20_mvc_case_study_module2\\data\\customer.csv";
     private final String COMMA = ",";
 
 
@@ -23,7 +23,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 customerList.get(index);
             }
         }
-        FileUtils.writeFile(PATH__FILE, convertToString(customerList));
+        FileUtils.writeFile(PATH_FILE, convertToString(customerList));
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
                 break;
             }
         }
-        FileUtils.writeFile(PATH__FILE, convertToString(customerList));
+        FileUtils.writeFile(PATH_FILE, convertToString(customerList));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         for (Customer customer : customerList) {
             customerSearch.add(customer);
         }
-        FileUtils.writeFile(PATH__FILE, convertToString(customerList));
+        FileUtils.writeFile(PATH_FILE, convertToString(customerList));
         return customerSearch;
     }
 
@@ -55,12 +55,12 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public void add(Customer customer) {
         List<Customer> customerList= getList();
         customerList.add(customer);
-        FileUtils.writeFile(PATH__FILE, convertToString(customerList));
+        FileUtils.writeFile(PATH_FILE, convertToString(customerList));
     }
 
     @Override
     public List<Customer> getList() {
-        return convertToE(FileUtils.readFile(PATH__FILE));
+        return convertToE(FileUtils.readFile(PATH_FILE));
     }
 
     @Override

@@ -81,8 +81,14 @@ public class EmployeeView {
         dateOfBirth = scanner.nextLine();
 
         String gender;
-        System.out.println("Nhap gioi tinh cua nhan vien: ");
-        gender = scanner.nextLine();
+        do {
+            System.out.println("Nhap gioi tinh cua nhan vien: ");
+            gender = scanner.nextLine();
+            if (!Regex.genderEmployeeAndCustomer(gender)) {
+                System.out.println("Ban nhap sai dinh dang.Vui long nhap (Nam || Nu || LGBT):  ");
+            }
+        } while (!Regex.genderEmployeeAndCustomer(gender));
+
 
         String identityCardNumber;
         do {
@@ -109,20 +115,30 @@ public class EmployeeView {
             System.out.println("Nhap email cua nhan vien: ");
             email = scanner.nextLine();
             if (!Regex.email(email)) {
-                System.out.println("Ban nhap sai dinh dang email, Vui long nhap lai: ");
+                System.out.println("Vui long nhap dung dinh dang cua email (***@gmail.com): ");
             }
         } while (!Regex.email(email));
 
 
         String level;
-        System.out.println("Nhap trinh do cua nhan vien:");
-        System.out.println("( Trung cap, Cao dang, Dai hoc, Sau dai hoc)");
-        level = scanner.nextLine();
+        do {
+            System.out.println("Nhap trinh do cua nhan vien:");
+            level = scanner.nextLine();
+            if (!Regex.levelEmployee(level)) {
+                System.out.println("Nhap sai dinh dang.Vui long nhap ( Trung cap, Cao dang, Dai hoc, Sau dai hoc): ");
+            }
+        } while (!Regex.levelEmployee(level));
+
 
         String position;
-        System.out.println("Nhap chuc vu cua nhan vien:");
-        System.out.println("le tan, Phuc vu, Chuyen vien, Giam sat, Quan ly, Giam doc");
-        position = scanner.nextLine();
+        do {
+            System.out.println("Nhap chuc vu cua nhan vien:");
+            position = scanner.nextLine();
+            if (!Regex.positionEmployee(position)) {
+                System.out.println("Nhap sai dinh dang.Vui long nhap (Le tan, Phuc vu, Chuyen vien, Giam sat, Quan ly, Giam doc): ");
+            }
+        } while (!Regex.positionEmployee(position));
+
 
         String amount;
         System.out.println("Nhap luong nhan vien: ");

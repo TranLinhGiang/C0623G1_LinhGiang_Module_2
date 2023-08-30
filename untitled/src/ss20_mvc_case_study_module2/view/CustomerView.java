@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class CustomerView {
     private final Scanner scanner = new Scanner(System.in);
-    // regex de fix loi;////////////////////////////////////////////////////////////////////////
     private final CustomerController customerController = new CustomerController();
 
     public void runMenuCustomer() {
@@ -59,21 +58,20 @@ public class CustomerView {
         do {
             System.out.println("Nhap id cua khach hang( id khach hang theo dinh dang KH-YYYY): ");
             id = scanner.nextLine();
-            if (!Regex.idCustomerRegex(id)){
+            if (!Regex.idCustomerRegex(id)) {
                 System.out.println("Vui long nhap lai id: ");
             }
-        }while (!Regex.idCustomerRegex(id));
+        } while (!Regex.idCustomerRegex(id));
 
 
         String name;
         do {
             System.out.println("Nhap ten cua khach hang( Ten nhan khach hang viet hoa cac ky tu dau moi tu: ");
             name = scanner.nextLine();
-            if (!Regex.nameCustomerRegex(name)){
+            if (!Regex.nameCustomerRegex(name)) {
                 System.out.println("Vui long nhap lai ten khach hang: ");
             }
-        }while (!Regex.nameCustomerRegex(name));
-
+        } while (!Regex.nameCustomerRegex(name));
 
 
         String dateOfBirth;
@@ -81,44 +79,54 @@ public class CustomerView {
         dateOfBirth = scanner.nextLine();
 
         String gender;
-        System.out.println("Nhap gioi tinh cua khach hang: ");
-        gender = scanner.nextLine();
+        do {
+            System.out.println("Nhap gioi tinh cua khach hang: ");
+            gender = scanner.nextLine();
+            if (!Regex.genderEmployeeAndCustomer(gender)) {
+                System.out.println("Ban nhap sai dinh dang.Vui long nhap (Nam || Nu || LGBT): ");
+            }
+        } while (!Regex.genderEmployeeAndCustomer(gender));
+
 
         String identityCardNumber;
         do {
             System.out.println("Nhap so chung minh khach hang ( CMND phai du 9 hoac 12 so): ");
             identityCardNumber = scanner.nextLine();
-            if (!Regex.identityCardCustomer(identityCardNumber)){
+            if (!Regex.identityCardCustomer(identityCardNumber)) {
                 System.out.println("Vui long nhap lai chung minh cua khach hang: ");
             }
-        }while (!Regex.identityCardCustomer(identityCardNumber));
+        } while (!Regex.identityCardCustomer(identityCardNumber));
 
 
         String phoneNumber;
         do {
             System.out.println("Nhap so dien thoai khach hang ( Sdt phai bat dau tu 0 va du 10 so) : ");
             phoneNumber = scanner.nextLine();
-            if (!Regex.phoneNumberCustomer(phoneNumber)){
+            if (!Regex.phoneNumberCustomer(phoneNumber)) {
                 System.out.println("Vui long nhap lai so dien thoai: ");
             }
-        }while (!Regex.phoneNumberCustomer(phoneNumber));
-
+        } while (!Regex.phoneNumberCustomer(phoneNumber));
 
 
         String email;
         do {
             System.out.println("Nhap email cua khach hang: ");
             email = scanner.nextLine();
-            if (!Regex.emailCustomer(email)){
+            if (!Regex.emailCustomer(email)) {
                 System.out.println("Vui long nhap dung dinh dang cua email (***@gmail.com): ");
             }
-        }while (!Regex.emailCustomer(email));
+        } while (!Regex.emailCustomer(email));
 
 
         String customerType;
-        System.out.println("Nhap loai khach hang:");
-        System.out.println("( Diamond, Platinum, Gold, Silver)");
-        customerType = scanner.nextLine();
+        do {
+            System.out.println("Nhap loai khach hang:");
+            customerType = scanner.nextLine();
+            if (!Regex.typeCustomer(customerType)) {
+                System.out.println("Nhap sai dinh dang.Vui long nhap theo loai khach hang ( Diamond, Platinum, Gold, Silver): ");
+            }
+        } while (!Regex.typeCustomer(customerType));
+
 
         String address;
         System.out.println("Nhap dia chi cua khach hang: ");
