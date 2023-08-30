@@ -2,6 +2,7 @@ package ss20_mvc_case_study_module2.view;
 
 import ss20_mvc_case_study_module2.controllers.CustomerController;
 import ss20_mvc_case_study_module2.model.persion.Customer;
+import ss20_mvc_case_study_module2.utils.Regex;
 
 import java.util.List;
 import java.util.Scanner;
@@ -54,17 +55,26 @@ public class CustomerView {
     }
 
     public Customer inputCustomer() {
-        String id = null;
-        try {
-            System.out.println("Nhap id cua khach hang: ");
+        String id;
+        do {
+            System.out.println("Nhap id cua khach hang( id khach hang theo dinh dang KH-YYYY): ");
             id = scanner.nextLine();
-        } catch (Exception e) {
-            System.out.println("Ban nhap sai dinh dang");
-        }
+            if (!Regex.idCustomerRegex(id)){
+                System.out.println("Vui long nhap lai id: ");
+            }
+        }while (!Regex.idCustomerRegex(id));
+
 
         String name;
-        System.out.println("Nhap ten cua khach hang: ");
-        name = scanner.nextLine();
+        do {
+            System.out.println("Nhap ten cua khach hang( Ten nhan khach hang viet hoa cac ky tu dau moi tu: ");
+            name = scanner.nextLine();
+            if (!Regex.nameCustomerRegex(name)){
+                System.out.println("Vui long nhap lai ten khach hang: ");
+            }
+        }while (!Regex.nameCustomerRegex(name));
+
+
 
         String dateOfBirth;
         System.out.println("Nhap ngay thang nam sinh cua khach hang: ");
@@ -75,16 +85,35 @@ public class CustomerView {
         gender = scanner.nextLine();
 
         String identityCardNumber;
-        System.out.println("Nhap so chung minh khach hang: ");
-        identityCardNumber = scanner.nextLine();
+        do {
+            System.out.println("Nhap so chung minh khach hang ( CMND phai du 9 hoac 12 so): ");
+            identityCardNumber = scanner.nextLine();
+            if (!Regex.identityCardCustomer(identityCardNumber)){
+                System.out.println("Vui long nhap lai chung minh cua khach hang: ");
+            }
+        }while (!Regex.identityCardCustomer(identityCardNumber));
+
 
         String phoneNumber;
-        System.out.println("Nhap so dien thoai khach hang: ");
-        phoneNumber = scanner.nextLine();
+        do {
+            System.out.println("Nhap so dien thoai khach hang ( Sdt phai bat dau tu 0 va du 10 so) : ");
+            phoneNumber = scanner.nextLine();
+            if (!Regex.phoneNumberCustomer(phoneNumber)){
+                System.out.println("Vui long nhap lai so dien thoai: ");
+            }
+        }while (!Regex.phoneNumberCustomer(phoneNumber));
+
+
 
         String email;
-        System.out.println("Nhap email cua khach hang: ");
-        email = scanner.nextLine();
+        do {
+            System.out.println("Nhap email cua khach hang: ");
+            email = scanner.nextLine();
+            if (!Regex.emailCustomer(email)){
+                System.out.println("Vui long nhap dung dinh dang cua email (***@gmail.com): ");
+            }
+        }while (!Regex.emailCustomer(email));
+
 
         String customerType;
         System.out.println("Nhap loai khach hang:");
