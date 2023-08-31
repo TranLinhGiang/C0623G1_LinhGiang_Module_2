@@ -50,8 +50,8 @@ public class FacilityRepositoryImpl implements IFacilityRepository {
     public List<String> convertToString(List<Facility> facilityList) {
         List<String> strings = new ArrayList<>();
         String string;
-        for (Facility facility : facilityList) {
-            if (facility.getId().contains(" i")) {
+        for (Facility facility : facilityList)
+            if (facility.getId().contains("SVHO")) {
                 House house = (House) facility;
                 string = house.getId() + COMA +
                         house.getName() + COMA +
@@ -62,7 +62,7 @@ public class FacilityRepositoryImpl implements IFacilityRepository {
                         house.getRoomStandard() + COMA +
                         house.getNumberOfFloors();
                 strings.add(string);
-            } else if (facility.getId().contains(" u")) {
+            } else if (facility.getId().contains("SVRO")) {
                 Room room = (Room) facility;
                 string = room.getId() + COMA +
                         room.getName() + COMA +
@@ -85,7 +85,6 @@ public class FacilityRepositoryImpl implements IFacilityRepository {
                         villa.getNumberOfFloors();
                 strings.add(string);
             }
-        }
         return strings;
     }
 
@@ -94,18 +93,15 @@ public class FacilityRepositoryImpl implements IFacilityRepository {
         List<Facility> facilityList = new ArrayList<>();
         for (String string : strings) {
             String[] data = string.split(COMA);
-            if (data[0].contains(" i")) {
-                House house = new House(data[1], Integer.parseInt(data[2]), Float.parseFloat(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), data[6], Integer.parseInt(data[7]));
-                house.setId(data[0]);
+            if (data[0].contains("SVHO")) {
+                House house = new House(data[0],data[1],data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]), data[5], data[6], Integer.parseInt(data[7]));
                 facilityList.add(house);
-            } else if (data[0].contains(" u")) {
-                Room room = new Room(data[1], Integer.parseInt(data[2]), Float.parseFloat(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), data[6]);
-                room.setId(data[0]);
+            } else if (data[0].contains("SVRO")) {
+                Room room = new Room(data[0],data[1], data[2], Integer.parseInt(data[3]), Integer.parseInt(data[4]), data[5], data[6]);
                 facilityList.add(room);
             }else {
-                Villa villa= new Villa(data[1], Integer.parseInt(data[2]), Float.parseFloat(data[3]), Integer.parseInt(data[4]), Integer.parseInt(data[5]), data[6], Integer.parseInt(data[7]), Integer.parseInt(data[8]));
-            villa.setId(data[0]);
-            facilityList.add(villa);
+                Villa villa= new Villa(data[0],data[1],data[2],Integer.parseInt(data[3]), Integer.parseInt(data[4]),data[5], data[6], Integer.parseInt(data[7]), Integer.parseInt(data[7]));
+                facilityList.add(villa);
             }
         }
         return facilityList;

@@ -1,7 +1,7 @@
 package ss20_mvc_case_study_module2.model.persion;
 
 public class Customer extends Person {
-    private String customerType;  // loai khach hang
+    private String customerType;
     private String address;
 
 
@@ -32,14 +32,14 @@ public class Customer extends Person {
     @Override
     public String toString() {
         return "Customer{" +
-                "id='" + getId() + 
-                ", name='" + getName() + 
-                ", dateOfBirth='" + getDateOfBirth() + 
-                ", gender='" + getGender() + 
+                "id='" + getId() +
+                ", name='" + getName() +
+                ", dateOfBirth='" + getDateOfBirth() +
+                ", gender='" + getGender() +
                 ", identityCardNumber=" + getIdentityCardNumber() +
                 ", phoneNumber=" + getPhoneNumber() +
                 ", email= " + getEmail() +
-                ", customerType='" + customerType + 
+                ", customerType='" + customerType +
                 ", address='" + address +
                 '}';
     }

@@ -5,6 +5,7 @@ import ss20_mvc_case_study_module2.model.facility.Facility;
 import ss20_mvc_case_study_module2.model.facility.House;
 import ss20_mvc_case_study_module2.model.facility.Room;
 import ss20_mvc_case_study_module2.model.facility.Villa;
+import ss20_mvc_case_study_module2.utils.Regex;
 
 import java.util.List;
 import java.util.Scanner;
@@ -70,106 +71,208 @@ public class FacilityView {
                 System.out.println("Chon khong dung chuong trinh.Vui long chon lai: ");
 
             }
-        } while (choice <=0 || choice > 4);
+        } while (choice <= 0 || choice > 4);
 
-        String rentalType;    // Kiểu thuê (year, month,day,hourly)
-        String roomStandard;  // tiêu chuẩn phòng
-        int usableArea;         // diện tích phòng
-        int poolArea;          // dien tich ho boi
-        int numberOfFloors;   //so tang
-        String freeService;   // dich vu mien phi
-        String id;      // ma dich vu
-        String name;   // ten dich vu
-        int rentalCosts; //chi phi thuê
-        int maximumNumberOfPeople; //số lượng người tối đa
-
+        String rentalType;
+        String roomStandard;
+        String usableArea;
+        int poolArea = 0;
+        int numberOfFloors = 0;
+        String freeService;
+        String id;
+        String name;
+        int rentalCosts = 0;
+        int maximumNumberOfPeople = 0;
 
         switch (choice) {
             case 1:
-                System.out.println("nhap ma dich vu:  ");
-                id = scanner.nextLine();
+                do {
+                    System.out.println("nhap ma dich vu (SVVL-YYYY):  ");
+                    id = scanner.nextLine();
+                    if (!Regex.idVilla(id)) {
+                        System.out.println("Ban nhap sai sinh dang id cua villa. Vui long nhap (SVVL-YYYY): ");
+                    }
+                } while (!Regex.idVilla(id));
 
-                System.out.println("Nhap ten dich vu: ");
-                name = scanner.nextLine();
+                do {
+                    System.out.println("Nhap ten dich vu: ");
+                    name = scanner.nextLine();
+                    if (!Regex.nameValidate(name)) {
+                        System.out.println(" ## Ban nhap sai dinh dang.Vui long nhap phai viet hoa cac ky tu dau tien.Vui long nhap lai ## ");
+                    }
+                } while (!Regex.nameValidate(name));
 
-                System.out.println("Nhap dien tich phong: ");
-                usableArea = Integer.parseInt(scanner.nextLine());
+                System.out.println("Nhap dien tich phong( >0 & >30m2 ): ");
+                usableArea = scanner.nextLine();
+                do {
+                    try {
+                        System.out.println("Nhap chi phi thue ( > 0 ): ");
+                        rentalCosts = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Ban nhap sai dinh dang. Vui long nhap lai ##");
+                    }
+                } while (rentalCosts <= 0);
 
-                System.out.println("Nhap chi phi thue: ");
-                rentalCosts = Integer.parseInt(scanner.nextLine());
+                do {
+                    try {
+                        System.out.println("Nhap so luong nguoi toi da ( >0 & <20): ");
+                        maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Ban nhap sai dinh dang,so luong nguoi phai la so. Vui long nhap lai ## ");
+                    }
+                } while (maximumNumberOfPeople <= 0 || maximumNumberOfPeople >= 20);
 
-                System.out.println("Nhap so luong nguoi toi da: ");
-                maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
+                do {
+                    System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
+                    rentalType = scanner.nextLine();
+                    if (!Regex.rentalType(rentalType)) {
+                        System.out.println("## Ban nhap sai dinh dang, hay nhap theo mau da duoc de xuat. Vui long nhap lai ##");
+                    }
+                } while (!Regex.rentalType(rentalType));
 
-                System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
-                rentalType = scanner.nextLine();
 
                 System.out.println("Nhap tieu chuan phong: ");
                 roomStandard = scanner.nextLine();
 
+                do {
+                    try {
+                        System.out.println("Nhap dien tich ho boi( > 30m2 ): ");
+                        poolArea = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Ban nhap sai dinh dang, dien tich phai la so. Vui long nhap lai ##");
+                    }
+                } while (poolArea <= 30);
 
-                System.out.println("Nhap dien tich ho boi: ");
-                poolArea = Integer.parseInt(scanner.nextLine());
+                do {
+                    try {
+                        System.out.println("Nhap so tang: ");
+                        numberOfFloors = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println(" ## Ban nhap sai dinh dang, so tang phai la so.Vui long nhap lai ##");
+                    }
+                } while (numberOfFloors <= 0);
 
-                System.out.println("Nhap so tang: ");
-                numberOfFloors = Integer.parseInt(scanner.nextLine());
 
                 facility = new Villa(id, name, usableArea, rentalCosts, maximumNumberOfPeople, rentalType, roomStandard, poolArea, numberOfFloors);
                 break;
             case 2:
-                System.out.println("nhap ma dich vu:  ");
-                id = scanner.nextLine();
+                do {
+                    System.out.println("nhap ma dich vu ( SVHO-YYYY ):  ");
+                    id = scanner.nextLine();
+                    if (!Regex.idHouse(id)) {
+                        System.out.println("## Nhap sai dinh dang.Vui long nhap lai ##");
+                    }
+                } while (!Regex.idHouse(id));
 
-                System.out.println("Nhap ten dich vu: ");
-                name = scanner.nextLine();
+                do {
+                    System.out.println("Nhap ten dich vu: ");
+                    name = scanner.nextLine();
+                    if (!Regex.nameValidate(name)) {
+                        System.out.println("## Sai dinh dang.Vui long nhap dung dinh dang.Chu cai dauphai viet hoa ##");
+                    }
+                } while (!Regex.nameValidate(name));
 
-                System.out.println("Nhap dien tich phong: ");
-                usableArea = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Nhap chi phi thue: ");
-                rentalCosts = Integer.parseInt(scanner.nextLine());
+                System.out.println("Nhap dien tich phong( >0 & >30m2 ): ");
+                usableArea = scanner.nextLine();
+                do {
+                    try {
+                        System.out.println("Nhap chi phi thue ( > 0 & <20 ): ");
+                        rentalCosts = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Nhap sai dinh dang.Vui long nhap lai ## ");
+                    }
+                } while (rentalCosts <= 0);
 
-                System.out.println("Nhap so luong nguoi toi da: ");
-                maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
+                do {
+                    try {
+                        System.out.println("Nhap so luong nguoi toi da ( 0 < X < 20 ): ");
+                        maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Nhap sai dinh dang, so luong nguoi la so duong.Vui long nhap lai ##");
+                    }
 
-                System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
-                rentalType = scanner.nextLine();
+                } while (maximumNumberOfPeople <= 0 || maximumNumberOfPeople >= 20);
+
+                do {
+                    System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
+                    rentalType = scanner.nextLine();
+                    if (!Regex.rentalType(rentalType)) {
+                        System.out.println("## Ban nhap sai dinh dang, hay nhap theo mau da duoc de xuat. Vui long nhap lai ##");
+                    }
+                } while (!Regex.rentalType(rentalType));
+
 
                 System.out.println("Nhap tieu chuan phong: ");
                 roomStandard = scanner.nextLine();
+                do {
+                    try {
+                        System.out.println("Nhap so tang: ");
+                        numberOfFloors = Integer.parseInt(scanner.nextLine());
+                    } catch (Exception e) {
+                        System.out.println("## Nhap sai dinh dang,so tang phai la mot so.Vui long nhap lai ##");
+                    }
 
-                System.out.println("Nhap so tang: ");
-                numberOfFloors = Integer.parseInt(scanner.nextLine());
+                } while (numberOfFloors <= 0);
+
 
                 facility = new House(id, name, usableArea, rentalCosts, maximumNumberOfPeople, rentalType, roomStandard, numberOfFloors);
                 break;
 
             case 3:
-                System.out.println("nhap ma dich vu:  ");
-                id = scanner.nextLine();
+                do {
+                    System.out.println("nhap ma dich vu:  ");
+                    id = scanner.nextLine();
+                    if (!Regex.idRoom(id)) {
+                        System.out.println("Ban nhap sai sinh dang id cua villa. Vui long nhap (SVRO-YYYY): ");
+                    }
 
-                System.out.println("Nhap ten dich vu: ");
-                name = scanner.nextLine();
+                } while (!Regex.idRoom(id));
+                do {
+                    System.out.println("Nhap ten dich vu: ");
+                    name = scanner.nextLine();
+                    if (!Regex.nameValidate(name)) {
+                        System.out.println("Nhap sai dinh dang,phai ghi hoa owr chu cai dau. Vui long nhap lai");
+                    }
+                } while (!Regex.nameValidate(name));
+
 
                 System.out.println("Nhap dien tich phong: ");
-                usableArea = Integer.parseInt(scanner.nextLine());
+                usableArea = scanner.nextLine();
+                do {
+                    System.out.println("Nhap chi phi thue ( > 0 ): ");
+                    rentalCosts = Integer.parseInt(scanner.nextLine());
+                } while (rentalCosts <= 0);
 
-                System.out.println("Nhap chi phi thue: ");
-                rentalCosts = Integer.parseInt(scanner.nextLine());
+                do {
+                    System.out.println("Nhap so luong nguoi toi da ( < 20 ): ");
+                    maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
+                } while (maximumNumberOfPeople >= 20);
 
-                System.out.println("Nhap so luong nguoi toi da: ");
-                maximumNumberOfPeople = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
-                rentalType = scanner.nextLine();
+                do {
+                    System.out.println("Nhap kieu thue ( Year || Month || Day || Hourly): ");
+                    rentalType = scanner.nextLine();
+                    if (!Regex.rentalType(rentalType)) {
+                        System.out.println("## Ban nhap sai dinh dang, hay nhap theo mau da duoc de xuat. Vui long nhap lai ##");
+                    }
+                } while (!Regex.rentalType(rentalType));
 
-                System.out.println("Nhap dich vu mien phi di kem (wifi || air conditional || water) : ");
-                freeService = scanner.nextLine();
+                do {
+                    System.out.println("Nhap dich vu mien phi di kem (wifi || air conditional || water) : ");
+                    freeService = scanner.nextLine();
+                    if (!Regex.freeService(freeService)) {
+                        System.out.println("## Nhap sai dinh dang.Vui long chon lai ##");
+                    }
+                } while (!Regex.freeService(freeService));
+
 
                 facility = new Room(id, name, usableArea, rentalCosts, maximumNumberOfPeople, rentalType, freeService);
                 break;
             case 4:
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + choice);
         }
         return facility;
     }

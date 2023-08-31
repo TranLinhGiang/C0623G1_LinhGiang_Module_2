@@ -37,9 +37,11 @@ public class FuramaView {
                         option4 = Integer.parseInt(scanner.nextLine());
                     } while (option4 != 3);
                     break;
+                default:
+                    throw new IllegalStateException("Unexpected value: " + choice);
             }
 
-        } while (choice != 6);
+        } while (choice != 5);
     }
 
     public void showMenu() {

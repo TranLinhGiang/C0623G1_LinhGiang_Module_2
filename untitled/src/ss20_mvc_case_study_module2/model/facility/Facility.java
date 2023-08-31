@@ -4,9 +4,9 @@ public abstract class Facility {
     private String id;
     private  String name;
     private String usableArea;
-    private int rentalCosts;  // chi phí thuê
-    private int maximumNumberOfPeople;  //số người tối đa
-    private String rentalType;  // loai cho thue
+    private int rentalCosts;
+    private int maximumNumberOfPeople;
+    private String rentalType;
 
     public Facility() {
     }
@@ -70,8 +70,8 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Furama{" +
-                "id=" + id +
+        return "Facility{" +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", usableArea='" + usableArea + '\'' +
                 ", rentalCosts=" + rentalCosts +

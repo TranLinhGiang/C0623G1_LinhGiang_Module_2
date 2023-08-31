@@ -5,7 +5,7 @@ public abstract class Person {
     private String name;
     private String dateOfBirth;
     private String gender;
-    private String identityCardNumber;  // so CMND
+    private String identityCardNumber;
     private String phoneNumber;
 
     private String email;

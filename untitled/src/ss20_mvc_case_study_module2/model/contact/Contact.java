@@ -1,10 +1,10 @@
 package ss20_mvc_case_study_module2.model.contact;
 
 public class Contact {
-    private String idBooking;       // mã bookig.
-    private String numberContract;  // số hợp đồng.
-    private String deposit;         // tiền cọc trước.
-    private String totalPayment;    // Tổng tiền thanh toán.
+    private String idBooking;
+    private String numberContract;
+    private String deposit;
+    private String totalPayment;
 
     public Contact(String idBooking, String numberContract, String deposit, String totalPayment) {
         this.idBooking = idBooking;
